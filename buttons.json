@@ -1,4 +1,14 @@
 [
-  { "label": "ONE PIECE", "url": "https://t.me/erai_raws_one_piece" },
-  { "label": "BLEACH", "url": "https://t.me/bleach_720p" }
+  {
+    "label": "ONE PIECE",
+    "url": "https://t.me/erai_raws_one_piece"
+  },
+  {
+    "label": "BLEACH",
+    "url": "https://t.me/bleach_720p"
+  },
+  {
+    "label": "DEMON SLAYER",
+    "url": "https://t.me/demonslayer_hd"
+  }
 ]
