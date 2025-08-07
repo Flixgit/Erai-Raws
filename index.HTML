@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Simple One Button Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 100px;
-            background-color: #f4f4f4;
-        }
-        button {
-            padding: 15px 30px;
-            font-size: 16px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Erai Raws</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    button {
+      display: block;
+      margin: 1rem auto;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
+  <h1>ERAI RAWS</h1>
+  <div id="buttons"></div>
 
-    <h1>ERAI RAWS</h1>
-    <button onclick="window.open('https://t.me/erai_raws_one_piece', '_blank');">ONE PIECE</button>
+  <script>
+    const jsonUrl = "https://buttons.tiiny.site/buttons.json"; // replace this with your Tiiny Host JSON URL
 
-
-    <script>
-        function handleClick() {
-            alert("Button clicked!");
-        }
-    </script>
-
+    fetch(jsonUrl)
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('buttons');
+        data.forEach(button => {
+          const btn = document.createElement('button');
+          btn.textContent = button.label;
+          btn.onclick = () => window.open(button.url, '_blank');
+          container.appendChild(btn);
+        });
+      })
+      .catch(err => {
+        document.getElementById('buttons').textContent = 'Failed to load buttons.';
+        console.error(err);
+      });
+  </script>
 </body>
 </html>
