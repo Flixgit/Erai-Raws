@@ -1,46 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Erai Raws</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 2rem;
-    }
-    button {
-      display: block;
-      margin: 1rem auto;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Anime Buttons</title>
+
+  <!-- Link to CSS hosted on GitHub -->
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/Flixgit/Erai-Raws/main/styles.css">
 </head>
 <body>
-  <h1>ERAI RAWS</h1>
-  <div id="buttons"></div>
+  <h1>Anime Links</h1>
+  <div id="button-container"></div>
 
   <script>
-    const jsonUrl = "https://buttons.tiiny.site/buttons.json"; // replace this with your Tiiny Host JSON URL
-
-    fetch(jsonUrl)
-      .then(response => response.json())
+    fetch('https://raw.githubusercontent.com/Flixgit/Erai-Raws/main/buttons.json')
+      .then(res => res.json())
       .then(data => {
-        const container = document.getElementById('buttons');
-        data.forEach(button => {
-          const btn = document.createElement('button');
-          btn.textContent = button.label;
-          btn.onclick = () => window.open(button.url, '_blank');
+        const container = document.getElementById('button-container');
+        data.forEach(item => {
+          const btn = document.createElement('a');
+          btn.textContent = item.label;
+          btn.href = item.url;
+          btn.className = 'my-button';
+          btn.target = '_blank';
           container.appendChild(btn);
         });
       })
-      .catch(err => {
-        document.getElementById('buttons').textContent = 'Failed to load buttons.';
-        console.error(err);
-      });
+      .catch(err => console.error('Error loading buttons:', err));
   </script>
 </body>
 </html>
