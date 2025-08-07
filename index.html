@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ERAI RAWS</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 20%;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: red;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.2em;
+      transition: background-color 0.3s ease;
+    }
+
+    a.button.blue {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>ERAI RAWS</h1>
+
+  <a href="https://t.me/bleach_720p" target="_blank" id="visitButton" class="button">Bleach</a>
+
+  <script>
+    const button = document.getElementById('visitButton');
+
+    button.addEventListener('click', function (event) {
+      event.preventDefault(); // Prevents the link from opening immediately
+
+      this.classList.toggle('blue'); // Toggle between red and blue
+
+      // Optional: Wait a moment before opening the link
+      setTimeout(() => {
+        window.open(this.href, '_blank');
+      }, 200);
+    });
+  </script>
+
+</body>
+</html>
