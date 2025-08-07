@@ -2,30 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Anime Buttons</title>
+  <title>Anime Links</title>
 
-  <!-- Link to CSS hosted on GitHub -->
-  <link rel="stylesheet" href="https://raw.githubusercontent.com/Flixgit/Erai-Raws/main/styles.css">
+  <!-- ✅ Load CSS from GitHub (hosted styles.css) -->
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/Flixgit/Erai-Raws/main/styles.css?v=1">
 </head>
 <body>
+
   <h1>Anime Links</h1>
   <div id="button-container"></div>
 
+  <!-- ✅ Load JSON from GitHub -->
   <script>
-    fetch('https://raw.githubusercontent.com/Flixgit/Erai-Raws/main/buttons.json')
-      .then(res => res.json())
+    fetch('https://raw.githubusercontent.com/Flixgit/Erai-Raws/main/buttons.json?v=1')
+      .then(response => response.json())
       .then(data => {
         const container = document.getElementById('button-container');
         data.forEach(item => {
-          const btn = document.createElement('a');
-          btn.textContent = item.label;
-          btn.href = item.url;
-          btn.className = 'my-button';
-          btn.target = '_blank';
-          container.appendChild(btn);
+          const button = document.createElement('a');
+          button.textContent = item.label;
+          button.href = item.url;
+          button.className = 'my-button';
+          button.target = '_blank';
+          container.appendChild(button);
         });
       })
-      .catch(err => console.error('Error loading buttons:', err));
+      .catch(error => console.error('Error loading buttons:', error));
   </script>
+
 </body>
 </html>
